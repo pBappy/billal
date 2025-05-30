@@ -94,3 +94,19 @@ footer {
     color: #fff;
     margin-top: 2rem;
 }
+/* ... আগের সিএসএস কোড ... */
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 10px;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
