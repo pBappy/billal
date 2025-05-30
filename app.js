@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Service Worker Registration (আমরা এটি পরে service-worker.js তৈরি করার পর আনকমেন্ট করব)
     if ('serviceWorker' in navigator) {
          window.addEventListener('load', () => {
-             navigator.serviceWorker.register('/service-worker.js')
+             navigator.serviceWorker.register('./service-worker.js', { scope: './' })
                  .then(registration => {
                      console.log('ServiceWorker registration successful with scope: ', registration.scope);
                  })
