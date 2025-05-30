@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#007bff"/> <!-- PWA থিম কালার -->
+    <title>জমা খরচ অ্যাপ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json"> <!-- ম্যানিফেস্ট ফাইল লিংক -->
+</head>
+<body>
+    <header>
+        <h1>আমার জমা খরচ</h1>
+    </header>
+
+    <main>
+        <section class="entry-form-section">
+            <h2>নতুন এন্ট্রি</h2>
+            <form id="entryForm">
+                <div>
+                    <label for="description">বিবরণ:</label>
+                    <input type="text" id="description" required>
+                </div>
+                <div>
+                    <label for="amount">টাকার পরিমাণ:</label>
+                    <input type="number" id="amount" step="0.01" required>
+                </div>
+                <div>
+                    <label for="type">ধরন:</label>
+                    <select id="type">
+                        <option value="income">জমা (Income)</option>
+                        <option value="expense">খরচ (Expense)</option>
+                    </select>
+                </div>
+                <button type="submit">এন্ট্রি করুন</button>
+            </form>
+        </section>
+
+        <section class="entries-list-section">
+            <h2>সকল এন্ট্রি</h2>
+            <ul id="entriesList">
+                <!-- এন্ট্রিগুলো এখানে দেখানো হবে -->
+            </ul>
+            <p>মোট জমা: <span id="totalIncome">0</span></p>
+            <p>মোট খরচ: <span id="totalExpense">0</span></p>
+            <p>অবশিষ্ট: <span id="balance">0</span></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© ২০২৪ আপনার জমা খরচ অ্যাপ</p>
+    </footer>
+
+    <!-- আমাদের জাভাস্ক্রিপ্ট ফাইলগুলো -->
+    <script src="db.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
