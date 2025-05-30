@@ -69,16 +69,26 @@
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+  const firebaseApp = initializeApp(firebaseConfig);
+  window.dbFirestore = getFirestore(firebaseApp); // Firestore ইন্সট্যান্স
+
+  // Firestore ফাংশনগুলো window অবজেক্টে রাখি যাতে app.js থেকে সহজে ব্যবহার করা যায়
+  window.fb = {
+      collection,
+      addDoc,
+      getDocs,
+      query,
+      orderBy,
+      doc,
+      deleteDoc: firestoreDeleteDoc, // deleteDoc নামটি window.deleteDoc এর সাথে কনফ্লিক্ট করতে পারে
+      updateDoc,
+      serverTimestamp,
+      where,
+      writeBatch
+  };
+  console.log("Firebase Initialized and Firestore functions are available on window.fb");
 </script>
-    
-<script type="module">
-  // ... (উপরে কপি করা Firebase SDK কোড) ...
-  // Initialize Firebase
-  const firebaseApp = initializeApp(firebaseConfig); // app এর পরিবর্তে firebaseApp নাম দিলাম কনফ্লিক্ট এড়াতে
-  // Firestore ইন্সট্যান্স গ্লোবালি অ্যাক্সেস করার জন্য (অথবা app.js এ এক্সপোর্ট/ইম্পোর্ট করতে পারেন)
-  window.dbFirestore = getFirestore(firebaseApp);
-</script>
+
 
     
     <!-- আমাদের জাভাস্ক্রিপ্ট ফাইলগুলো -->
