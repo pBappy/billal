@@ -68,25 +68,22 @@
     appId: "1:90422618293:web:8a65e2e45957d7fca836fc"
   };
 
-  // Initialize Firebase
-  const firebaseApp = initializeApp(firebaseConfig);
-  window.dbFirestore = getFirestore(firebaseApp); // Firestore ইন্সট্যান্স
+   // Initialize Firebase
+  try {
+    const firebaseApp = initializeApp(firebaseConfig);
+    window.dbFirestore = getFirestore(firebaseApp); // Firestore ইন্সট্যান্স
 
-  // Firestore ফাংশনগুলো window অবজেক্টে রাখি যাতে app.js থেকে সহজে ব্যবহার করা যায়
-  window.fb = {
-      collection,
-      addDoc,
-      getDocs,
-      query,
-      orderBy,
-      doc,
-      deleteDoc: firestoreDeleteDoc, // deleteDoc নামটি window.deleteDoc এর সাথে কনফ্লিক্ট করতে পারে
-      updateDoc,
-      serverTimestamp,
-      where,
-      writeBatch
-  };
-  console.log("Firebase Initialized and Firestore functions are available on window.fb");
+    // Firestore ফাংশনগুলো window অবজেক্টে রাখি
+    window.fb = {
+        collection, addDoc, getDocs, query, orderBy, doc,
+        deleteDoc: firestoreDeleteDoc,
+        updateDoc, serverTimestamp, where, writeBatch
+    };
+    console.log("Firebase Initialized successfully. Firestore functions are available on window.fb");
+  } catch (error) {
+    console.error("Error initializing Firebase:", error);
+    // ব্যবহারকারীকে জানানোর জন্য UI তে কিছু দেখাতে পারেন
+  }
 </script>
 
 
