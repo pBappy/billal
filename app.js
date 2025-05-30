@@ -126,16 +126,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Service Worker Registration (আমরা এটি পরে service-worker.js তৈরি করার পর আনকমেন্ট করব)
-    // if ('serviceWorker' in navigator) {
-    //     window.addEventListener('load', () => {
-    //         navigator.serviceWorker.register('/service-worker.js')
-    //             .then(registration => {
-    //                 console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    //             })
-    //             .catch(error => {
-    //                 console.log('ServiceWorker registration failed: ', error);
-    //             });
-    //     });
-    // }
+    if ('serviceWorker' in navigator) {
+         window.addEventListener('load', () => {
+             navigator.serviceWorker.register('/service-worker.js')
+                 .then(registration => {
+                     console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                 })
+                 .catch(error => {
+                     console.log('ServiceWorker registration failed: ', error);
+                 });
+         });
+     }
 
 }); // End of DOMContentLoaded
