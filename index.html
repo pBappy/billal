@@ -50,7 +50,37 @@
     <footer>
         <p>© ২০২৪ আপনার জমা খরচ অ্যাপ</p>
     </footer>
+    
+<!-- Firebase SDK (এখানে পেস্ট করুন) -->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBjUIW8vQLkJHfZNtB7lY9EtBcyzdY5_Jw",
+    authDomain: "jama-khoroch-pwa-app.firebaseapp.com",
+    projectId: "jama-khoroch-pwa-app",
+    storageBucket: "jama-khoroch-pwa-app.firebasestorage.app",
+    messagingSenderId: "90422618293",
+    appId: "1:90422618293:web:8a65e2e45957d7fca836fc"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
+    
+<script type="module">
+  // ... (উপরে কপি করা Firebase SDK কোড) ...
+  // Initialize Firebase
+  const firebaseApp = initializeApp(firebaseConfig); // app এর পরিবর্তে firebaseApp নাম দিলাম কনফ্লিক্ট এড়াতে
+  // Firestore ইন্সট্যান্স গ্লোবালি অ্যাক্সেস করার জন্য (অথবা app.js এ এক্সপোর্ট/ইম্পোর্ট করতে পারেন)
+  window.dbFirestore = getFirestore(firebaseApp);
+</script>
+
+    
     <!-- আমাদের জাভাস্ক্রিপ্ট ফাইলগুলো -->
     <script src="db.js"></script>
     <script src="app.js"></script>
